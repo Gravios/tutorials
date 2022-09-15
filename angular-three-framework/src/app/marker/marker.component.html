@@ -1,0 +1,17 @@
+<th-canvas (onRender)="this.onBeforeRender()">
+<th-scene>
+    <th-ambientLight> </th-ambientLight>
+    <th-box
+    (onClick)="selected = !selected"
+    [material]="material"
+    [rotation]="rotation"
+    [scale]="selected ? [2, 2, 2] : [1, 1, 1]"
+    ></th-box>
+
+    <th-perspectiveCamera
+    [args]="[45, 2, 0.1, 100]"
+    [position]="[10, 10, 10]"
+    [lookAt]="[0, 0, 0]"
+    ></th-perspectiveCamera>
+</th-scene>
+</th-canvas>
