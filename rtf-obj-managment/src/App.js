@@ -57,7 +57,7 @@ const ClickableGround = (props) => {
   const [items, setItems] = useState([]);
   
   useEffect(() => {
-    setItems(state => [...state,{ color: randColor}]);
+    setItems(state => [...state,{ color: new THREE.Color().setHex(Math.random()*0xffffff)}]);
     //const interval = setInterval(() => setItems(states => [...states,{ color: randColor.setHex(Math.random()*0xffffff) }]),1000)
     //return () => clearInterval(interval)
   },[])
@@ -65,7 +65,7 @@ const ClickableGround = (props) => {
 
   const handleClick = useCallback(e => {
     console.log('click');
-    setItems( states => {console.log(states);return [...states,{ color: randColor.setHex(Math.random()*0xffffff) }]})
+    setItems( states => {console.log(states);return [...states,{ color: new THREE.Color().setHex(Math.random()*0xffffff) }]})
   }, [])
 
 
