@@ -1,6 +1,6 @@
-OBJECTS = hello.o
+OBJECTS =  helloin.o
 
-default: hello
+default: helloin
 
 %.o : %.cpp
 	g++ -c $< -o $@
