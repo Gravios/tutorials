@@ -14,8 +14,33 @@ public class GraphTraverser {
             }
         }
     }
+
+    public static void breadthFirstTraversal(Vertex start, ArrayList<Vertex> visitedVertices){
+        Queue visitQueue = new Queue();
+        visitQueue.enqueue(start);
+        while (!visitQueue.isEmpty()) {
+            Vertex current = visitQueue.dequeue();
+            System.out.println(current.getData());
+
+            for (Edge e: current.getEdges()) {
+                Vertex neighbor = e.getEnd();
+                if (!visitedVertices.contains(neighbor)) {
+                    visitedVertices.add(neighbor);
+                    visitQueue.enqueue(neighbor);
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        
+        TestGraph test = new TestGraph();
+        Vertex startingVertex = test.getStartingVertex();
+        ArrayList<Vertex> visitedVertices = new ArrayList<Vertex>();
+        visitedVertices.add(startingVertex);
+        System.out.println("DFS:");
+        GraphTraverser.depthFirstTraversal(startingVertex, visitedVertices);
+        System.out.println("BFS:");
+        GraphTraverser.breadthFirstTraversal(startingVertex, visitedVertices);
     }
     
 }
