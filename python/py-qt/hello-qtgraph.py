@@ -32,7 +32,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    app.setStyleSheet(css)
+    qssfile="./styles.css"
+    with open(qssfile,"r") as fh:
+        app.setStyleSheet(fh.read())
     window = MainWindow()
     window.show()
     sys.exit(app.exec_())
