@@ -1,0 +1,13 @@
+OBJECTS =  hellofunc.o
+
+default: hellofunc
+
+%.o : %.cpp
+	g++ -c $< -o $@
+
+hello: $(OBJECTS)
+	g++ $(OBJECTS) -o $@
+
+clean:
+	-rm -f $(OBJECTS)
+	-rm -f hellofunc
