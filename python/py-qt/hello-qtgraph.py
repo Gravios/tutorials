@@ -12,7 +12,8 @@ class MainWindow(QtWidgets.QMainWindow):
         super(MainWindow, self).__init__(*args, **kwargs)
 
         self.graphWidget = pg.PlotWidget()
-        self.graphWidget.setTitle("<h1>Temp over Time</h1>")
+        self.graphWidget.setTitle("Temp over Time")
+        self.graphWidget.setStyleSheet("QGraphicsTextItem { color:green;}")
         self.setCentralWidget(self.graphWidget)
 
         hour = [1,2,3,4,5,6,7,8,9,10]
@@ -35,7 +36,10 @@ def main():
     qssfile="./styles.css"
     with open(qssfile,"r") as fh:
         app.setStyleSheet(fh.read())
+    app.setStyleSheet("QGraphicsTextItem { color:green;}")
     window = MainWindow()
+    #window.setStyleSheet("border:5px solid blue; padding:10px;")
+
     window.show()
     sys.exit(app.exec_())
 
