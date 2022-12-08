@@ -1,0 +1,16 @@
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -I/usr/include/freetype2 -I/usr/include/libpng16
+OBJECTS = hello.o
+
+default: hello
+
+%.o : %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+compat: $(OBJECTS)
+	$(CXX)  $(OBJECTS) -o $(CXXFLAGS) $@
+
+clean:
+	-rm -f $(OBJECTS)
+	-rm -f hello
+
